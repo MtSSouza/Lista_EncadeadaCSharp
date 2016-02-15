@@ -28,6 +28,9 @@ namespace ListaTest
             }
 
             body = newNode;
+
+            Console.WriteLine(newNode.valor);
+
         }
     }
 }
