@@ -22,16 +22,16 @@ namespace ListaTest
             }
         }
 
-        private Node _proximo;
-        public Node proximo
+        private Node _next;
+        public Node next
         {
             get
             {
-                return _proximo;
+                return _next;
             }
             set
             {
-                _proximo = value;
+                _next = value;
             }
         }
     }
