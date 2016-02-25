@@ -18,8 +18,9 @@ namespace ListaTest
             enter.insert("4");
             enter.insert("5");
             enter.insert("6");
-            string valor = enter.FindSingular(3);
-            Console.WriteLine(valor);
+            enter.insertInto(10, "7");
+            enter.insertIntoValue("7","8");
+            enter.write();
             Console.Read();
         }
     }

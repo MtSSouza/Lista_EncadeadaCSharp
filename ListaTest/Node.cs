@@ -34,5 +34,11 @@ namespace ListaTest
                 _next = value;
             }
         }
+
+        public Node ShallowCopy()
+        {
+            return (Node)this.MemberwiseClone();
+        }
+
     }
 }
