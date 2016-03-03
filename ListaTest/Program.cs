@@ -20,6 +20,7 @@ namespace ListaTest
             enter.insert("6");
             enter.insertInto(10, "7");
             enter.insertIntoValue("7","8");
+            enter.ChangeBetween(1, 2);
             enter.write();
             Console.Read();
         }

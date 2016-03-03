@@ -138,28 +138,16 @@ namespace ListaTest
         }
         #endregion
         #region Change Position
-        public void insertInto(int Position, string Position2)
+        public void ChangeBetween(int Position, int Position2)
         {
-            Node Node2 = new Node(); ;
-            Node Node1 = new Node(); ;
+            Node Node1 = new Node();
+            Node Node2 = new Node();
+            Node Copy2 = new Node();
             Node1 = FindSingular(Position);
             Node2 = FindSingular(Position2);
-            number++;
-            if (Node2.next == null)
-            {
-                Foot.next = Node1;
-            }
-            else if (Position < 1)
-            {
-                newNode.next = Head.ShallowCopy();
-                Head = newNode;
-                newNode = Actual;
-            }
-            else
-            {
-                newNode.next = Next;
-            }
-            Actual.next = newNode;
+            Copy2 = Node2.ShallowCopy();
+            Node2.valor = Node1.valor;
+            Node1.valor = Copy2.valor;
         }
         #endregion
         #region Write
