@@ -10,7 +10,8 @@ namespace ListaTest
     {
         // Creating the list;
         private Node head;
-        int number;
+        public int number;
+        public int trocas;
         #region Insert
         public Node Head
         {
@@ -160,6 +161,79 @@ namespace ListaTest
                 actual = actual.next;
                 number--;
             }
+        }
+        #endregion
+        #region Organize
+        public Node FindItem(int index)
+        {
+            int thisIndex = 0;
+            if (index > number)
+            {
+                index = number;
+                thisIndex = index - 2;
+            }
+            else
+            {
+                thisIndex = index - 2;
+            }
+            Node actual = head;
+            Node next = actual;
+            while (thisIndex >= 0)
+            {
+                actual = actual.next;
+                thisIndex--;
+            }
+            return actual;
+        }
+        public void Organize(List list)
+        {
+            int troca = 0;
+            int comp=0;
+            int length=list.number;
+
+            for(int i=length;i>0;i--)
+            {
+                for (int j=0;j<i; j++)
+                {
+                    comp++;
+                    Node actual=FindItem(j);
+                    Node next=actual.next;
+                    int counts=0;
+                    if(int.Parse(actual.valor)>int.Parse(next.valor))
+                    {
+                        counts++;
+                        ChangeBetween(j, j+counts);
+                        actual=FindItem(j+counts);
+                        next=actual.next;
+                        troca++;
+                    }
+                    else if(int.Parse(actual.valor)==int.Parse(next.valor))
+                    {
+                        actual = FindItem(j + counts);
+                        next = actual.next;
+                        troca++;
+                    }
+                    else
+                    {
+                        next=next.next;
+                    }
+                }
+            }
+            trocas = troca;
+        }
+        #endregion
+        #region Random Values
+        public void RandomValues(int max, List list)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(0, 999+number);
+
+            for(int i=0;i<max-4;i++)
+            {
+                list.insert(randomNumber.ToString());
+                randomNumber = random.Next(0, 999+number);
+            }
+            
         }
         #endregion
     }

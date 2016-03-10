@@ -3,25 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ListaTest
 {
     class Program
     {
         const int max = 10;
+        const int troca = 0;
+        /* LIST OF FUCNTIONS
+         * 
+            *  list.insert("6"); CREAT AN ITEM
+               list.insertInto(10, "7"); INSERT INTO LIST POSITION
+               list.insertIntoValue("7","8"); INSERT INTO POSITION WITH A PRE-DETERMINED VALUE
+               list.ChangeBetween(1, 2); CHANGE BETWEEN NODES WITHIN TWO POSITIONS
+               list.Organize(List list);
+            *  list.write(); WRITE THE NODES IN CONSOLE
+         *  
+         */
         static void Main(string[] args)
         {
-            List enter = new List();
-            enter.insert("1");
-            enter.insert("2");
-            enter.insert("3");
-            enter.insert("4");
-            enter.insert("5");
-            enter.insert("6");
-            enter.insertInto(10, "7");
-            enter.insertIntoValue("7","8");
-            enter.ChangeBetween(1, 2);
-            enter.write();
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            //Code
+            List list = new List();
+            list.RandomValues(max, list);
+            list.Organize(list); 
+            while(list.number < 300)
+            {
+                list.RandomValues(5, list);
+                list.Organize(list);
+            }
+            list.write();
+            stopwatch.Stop();
+            Console.WriteLine("Quanto tempo demorou esta caralha: {0}", stopwatch.Elapsed);
+            Console.WriteLine("Quantos itens: {0}", list.trocas);
             Console.Read();
         }
     }
