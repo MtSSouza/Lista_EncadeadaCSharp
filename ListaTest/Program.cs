@@ -28,12 +28,12 @@ namespace ListaTest
             //Code
             List list = new List();
             list.RandomValues(max, list);
-            list.Organize(list); 
-            while(list.number < 300)
+            list.QuickSort(list,0,list.number); 
+            /*while(list.number < 30)
             {
                 list.RandomValues(5, list);
                 list.Organize(list);
-            }
+            }*/
             list.write();
             stopwatch.Stop();
             Console.WriteLine("Quanto tempo demorou esta caralha: {0}", stopwatch.Elapsed);

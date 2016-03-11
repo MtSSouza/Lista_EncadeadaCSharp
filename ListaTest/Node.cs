@@ -9,11 +9,13 @@ namespace ListaTest
     class Node
     {
         // Creating the node parameters
+        public int _intvalor = 0;
         private string _valor;
         public string valor
         {
             get 
             {
+                _intvalor = int.Parse(_valor);
                 return _valor;
             }
             set
@@ -34,7 +36,6 @@ namespace ListaTest
                 _next = value;
             }
         }
-
         public Node ShallowCopy()
         {
             return (Node)this.MemberwiseClone();

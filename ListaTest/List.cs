@@ -222,6 +222,53 @@ namespace ListaTest
             trocas = troca;
         }
         #endregion
+        #region Quick Sort
+        public Node Noded(List list,int left,int right)
+        {
+            Node pivot = Head;
+            Node LeftAnchor = FindItem(left);
+            Node RightAnchor = FindItem(left);
+            while (true)
+            {
+                while (LeftAnchor._intvalor < pivot._intvalor)
+                {
+                    left++;
+                    LeftAnchor = FindItem(left);
+                }
+                while (RightAnchor._intvalor > pivot._intvalor)
+                {
+                    right++;
+                    RightAnchor = FindItem(right);
+                }
+
+                if (left < right)
+                {
+                    Node Copy = RightAnchor.ShallowCopy();
+                    RightAnchor = LeftAnchor;
+                    LeftAnchor = Copy;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+        public void QuickSort(List list,int left,int right)
+        {
+            if (left < right)
+            {
+                int pivot = Noded(list, 0, number);
+                if (pivot > 1)
+                {
+                    QuickSort(list, left, pivot - 1);
+                }
+                if (pivot + 1 < right)
+                {
+                    QuickSort(list, pivot + 1, right);
+                }
+            }
+        }
+        #endregion
         #region Random Values
         public void RandomValues(int max, List list)
         {
