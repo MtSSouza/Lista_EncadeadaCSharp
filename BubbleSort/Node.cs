@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListaTest
+namespace BubbleSort
 {
     class Node
     {
@@ -13,7 +13,7 @@ namespace ListaTest
         private string _valor;
         public string valor
         {
-            get 
+            get
             {
                 _intvalor = int.Parse(_valor);
                 return _valor;
@@ -40,6 +40,5 @@ namespace ListaTest
         {
             return (Node)this.MemberwiseClone();
         }
-
     }
 }

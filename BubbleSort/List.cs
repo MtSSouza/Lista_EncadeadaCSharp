@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace ListaTest
+namespace BubbleSort
 {
     class List
     {
         // Creating the list;
         private Node head;
         public int number;
+        public int length;
         public int trocas;
         public Stopwatch stopwatch = new Stopwatch();
         #region Insert
@@ -33,26 +34,26 @@ namespace ListaTest
                 return FindLast();
             }
         }
-        public void insert(string element) 
+        public void insert(string element)
         {
             // Creating the node
             Node newNode = new Node();
-
+            number++;
+            length++;
             newNode.valor = element;
             if (head == null)
             {
                 head = newNode;
             }
-            else 
+            else
             {
-                Foot.next = newNode;   
+                Foot.next = newNode;
             }
-            number++;
         }
         public Node FindLast()
         {
             Node actual = Head;
-            while(actual.next != null)
+            while (actual.next != null)
             {
                 actual = actual.next;
             }
@@ -123,11 +124,11 @@ namespace ListaTest
             Node newNode = new Node();
             number++;
             newNode.valor = element;
-            if(Actual.next == null)
+            if (Actual.next == null)
             {
                 Foot.next = newNode;
             }
-            else if(Position < 1)
+            else if (Position < 1)
             {
                 newNode.next = Head.ShallowCopy();
                 Head = newNode;
@@ -154,15 +155,17 @@ namespace ListaTest
         }
         #endregion
         #region Write
-        public void write()
+        public string write()
         {
             Node actual = head;
+            string labels = "";
             while (number >= 1)
             {
-                Console.WriteLine(actual.valor);
+                labels +=" | " + actual.valor;
                 actual = actual.next;
                 number--;
             }
+            return labels;
         }
         #endregion
         #region Organize
@@ -191,26 +194,26 @@ namespace ListaTest
         {
             stopwatch.Start();
             int troca = 0;
-            int comp=0;
-            int length=list.number;
+            int comp = 0;
+            int length = list.number;
 
-            for(int i=length;i>0;i--)
+            for (int i = length; i > 0; i--)
             {
-                for (int j=0;j<i; j++)
+                for (int j = 0; j < i; j++)
                 {
                     comp++;
-                    Node actual=FindItem(j);
-                    Node next=actual.next;
-                    int counts=0;
-                    if(int.Parse(actual.valor)>int.Parse(next.valor))
+                    Node actual = FindItem(j);
+                    Node next = actual.next;
+                    int counts = 0;
+                    if (int.Parse(actual.valor) > int.Parse(next.valor))
                     {
                         counts++;
-                        ChangeBetween(j, j+counts);
-                        actual=FindItem(j+counts);
-                        next=actual.next;
+                        ChangeBetween(j, j + counts);
+                        actual = FindItem(j + counts);
+                        next = actual.next;
                         troca++;
                     }
-                    else if(int.Parse(actual.valor)==int.Parse(next.valor))
+                    else if (int.Parse(actual.valor) == int.Parse(next.valor))
                     {
                         actual = FindItem(j + counts);
                         next = actual.next;
@@ -218,7 +221,7 @@ namespace ListaTest
                     }
                     else
                     {
-                        next=next.next;
+                        next = next.next;
                     }
                 }
             }
@@ -227,7 +230,7 @@ namespace ListaTest
         }
         #endregion
         #region Quick Sort
-        public int Noded(List list,int left,int right)
+        public int Noded(List list, int left, int right)
         {
             Node pivot = Head;
             Node LeftAnchor = FindItem(left);
@@ -257,7 +260,7 @@ namespace ListaTest
                 }
             }
         }
-        public void QuickSort(List list,int left,int right)
+        public void QuickSort(List list, int left, int right)
         {
             if (left < right)
             {
@@ -277,14 +280,14 @@ namespace ListaTest
         public void RandomValues(int max, List list)
         {
             Random random = new Random();
-            int randomNumber = random.Next(0, 999+number);
+            int randomNumber = random.Next(0, 99*number);
 
-            for(int i=0;i<max-4;i++)
+            for (int i = 0; i < max - 4; i++)
             {
                 list.insert(randomNumber.ToString());
-                randomNumber = random.Next(0, 999+number);
+                randomNumber = random.Next(0+number, 99*number);
             }
-            
+
         }
         #endregion
     }

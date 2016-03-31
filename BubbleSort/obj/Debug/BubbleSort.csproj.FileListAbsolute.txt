@@ -1,0 +1,9 @@
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\bin\Debug\BubbleSort.exe.config
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\bin\Debug\BubbleSort.exe
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\bin\Debug\BubbleSort.pdb
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\obj\Debug\BubbleSort.csprojResolveAssemblyReference.cache
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\obj\Debug\BubbleSort.Form1.resources
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\obj\Debug\BubbleSort.Properties.Resources.resources
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\obj\Debug\BubbleSort.csproj.GenerateResource.Cache
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\obj\Debug\BubbleSort.exe
+C:\Users\daniel.cavalli\Downloads\eissoai\BubbleSort\BubbleSort\obj\Debug\BubbleSort.pdb
