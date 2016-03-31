@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ListaTest
 {
@@ -12,6 +13,7 @@ namespace ListaTest
         private Node head;
         public int number;
         public int trocas;
+        public Stopwatch stopwatch = new Stopwatch();
         #region Insert
         public Node Head
         {
@@ -187,6 +189,7 @@ namespace ListaTest
         }
         public void Organize(List list)
         {
+            stopwatch.Start();
             int troca = 0;
             int comp=0;
             int length=list.number;
@@ -220,10 +223,11 @@ namespace ListaTest
                 }
             }
             trocas = troca;
+            stopwatch.Stop();
         }
         #endregion
         #region Quick Sort
-        public Node Noded(List list,int left,int right)
+        public int Noded(List list,int left,int right)
         {
             Node pivot = Head;
             Node LeftAnchor = FindItem(left);

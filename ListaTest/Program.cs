@@ -23,21 +23,18 @@ namespace ListaTest
          */
         static void Main(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             //Code
             List list = new List();
             list.RandomValues(max, list);
-            list.QuickSort(list,0,list.number); 
-            /*while(list.number < 30)
+            list.Organize(list); 
+            while(list.number < 300)
             {
                 list.RandomValues(5, list);
                 list.Organize(list);
-            }*/
+            }
             list.write();
-            stopwatch.Stop();
-            Console.WriteLine("Quanto tempo demorou esta caralha: {0}", stopwatch.Elapsed);
-            Console.WriteLine("Quantos itens: {0}", list.trocas);
+            Console.WriteLine("Quanto tempo demorou esta caralha: {0}", list.stopwatch.Elapsed);
+            Console.WriteLine("Quantas trocas: {0}", list.trocas);
             Console.Read();
         }
     }
